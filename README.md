@@ -1,4 +1,4 @@
-# Benchmarking Large-Scale Single-Cell RNA-seq Analysis
+# Benchmarking large-scale single-cell RNA-seq analysis
 
 This repository contains the scripts and resources used in our paper  
 **"Benchmarking large-scale single-cell RNA-seq analysis"**.  
@@ -11,11 +11,17 @@ It provides all materials necessary to reproduce the benchmarking results presen
 To ensure full reproducibility, we recommend recreating the computational environments used in our analyses.
 
 - **R environment**  
-  All R analyses were run within a pre-built container, available [here](LINK_TO_R_CONTAINER).
+  All R analyses were run within a pre-built container, available [here](https://github.com/billila/pca_scwf_paper/blob/main/envs/bioc_3_20_pca_wfsc.def).
 
 - **Python environment**  
   For Python-based methods, we used a conda environment.  
-  The corresponding `environment.yml` file can be found [here](LINK_TO_CONDA_ENV).
+  The corresponding `spca.yml` file can be found [here](https://github.com/billila/pca_scwf_paper/blob/main/envs/spca.yml).
+  To create it:  
+
+```
+conda env create -f spca.yml
+conda activate spca
+```
 
 ---
 
@@ -34,20 +40,6 @@ To ensure full reproducibility, we recommend recreating the computational enviro
 └── envs/ # Container and conda environment definitions
 ```
 
-## **Setup Instructions**  
-
-### **Python Environment**  
-
-For Python, use the Conda environment **`spca`**.  
-To create it, use the `spca.yml` file:  
-
-```
-conda env create -f spca.yml
-conda activate spca
-```
-
-### **R Environment**  
-For R, use the def file `bioc_3_20_pca_wsc.def`  
 
 ## Dataset
 
