@@ -4,6 +4,9 @@ This repository contains the scripts and resources used in our paper
 **"Benchmarking large-scale single-cell RNA-seq analysis"**.  
 It provides all materials necessary to reproduce the benchmarking results presented in the manuscript.
 
+
+<img src="images/fig1_color.png" width="1000" align="center"/>
+
 ---
 
 ##  Reproducibility and environment setup
@@ -30,7 +33,7 @@ conda activate spca
 ```
 ├── pca/
 │ ├── preprocessing/ # Scripts for data preprocessing prior to PCA
-│ ├── methods/ # Code for all 28 PCA implementations benchmarked
+│ ├── run_pca/ # Code for all 28 PCA implementations benchmarked
 │ └── README.md # Additional details on PCA benchmarking
 │
 ├── scwf/
