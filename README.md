@@ -4,9 +4,6 @@ This repository contains the scripts and resources used in our paper
 **"Benchmarking large-scale single-cell RNA-seq analysis"**.  
 It provides all materials necessary to reproduce the benchmarking results presented in the manuscript.
 
-
-<img src="images/fig1_color.png" width="1000" align="center"/>
-
 ---
 
 ##  Reproducibility and environment setup
