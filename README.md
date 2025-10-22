@@ -34,7 +34,10 @@ conda activate spca
 │ └── README.md # Additional details on PCA benchmarking
 │
 ├── scwf/
-│ ├── <dataset_name>/ # Workflow scripts grouped by input dataset
+│ ├── 1.3M/ # Workflow scripts grouped by input dataset
+│ ├── BE1/
+│ ├── cb/
+│ ├── sc_mix/
 │ └── README.md
 │
 └── envs/ # Container and conda environment definitions
