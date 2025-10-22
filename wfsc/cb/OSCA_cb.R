@@ -34,8 +34,8 @@ sce <- sce_m
 
 #### 1. find mithocondial genes  ####
 start_time <- Sys.time()
-library(EnsDb.Hsapiens.v75)
-chr.loc <- mapIds(EnsDb.Hsapiens.v75, keys=rownames(sce),
+library(EnsDb.Mmusculus.v79)
+chr.loc <- mapIds(EnsDb.Mmusculus.v79, keys=rownames(sce),
                   keytype="SYMBOL", column="SEQNAME")
 
 is.mito <- which(chr.loc=="MT")

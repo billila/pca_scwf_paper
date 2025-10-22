@@ -28,7 +28,7 @@ colnames(time) <- c("time_sec")
 rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg", 
                     "scaling", "PCA", "t-sne", "umap", "louvain", "leiden")
 
-library(EnsDb.Hsapiens.v75)
+library(EnsDb.Mmusculus.v79)
 
 assay(sce) <- DelayedArray(assay(sce))
 
