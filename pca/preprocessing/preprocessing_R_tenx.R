@@ -1,5 +1,3 @@
-# library used in this project
-
 library(SingleCellExperiment)
 library(zellkonverter)
 library(BiocSingular)

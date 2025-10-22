@@ -10,7 +10,7 @@ library(scran)
 library(BiocParallel)
 library(DelayedMatrixStats)
 library(rhdf5)
-library(TileDBArray)
+
 
 
 # load TENxBrainData

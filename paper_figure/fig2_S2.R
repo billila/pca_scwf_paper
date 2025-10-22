@@ -1,4 +1,3 @@
-library(readr)
 library(ggcorrplot)
 library(tidyr)
 library(viridis)
