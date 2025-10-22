@@ -18,6 +18,11 @@ load("dati_M2.RData")
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_100k", "_", "ila",".out")
+
+Rprof(filename = here("output",paste0("M2_Random", out_name)), append = FALSE, memory.profiling = TRUE)
+
 
 invisible(random_pca <- BiocSingular::runPCA(mat100k, rank = 50,
                                              center = TRUE, scale = FALSE,
@@ -25,6 +30,7 @@ invisible(random_pca <- BiocSingular::runPCA(mat100k, rank = 50,
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
 
+Rprof(NULL)
 time.end <- proc.time()
 time100k_random<- time.end - time.start
 time100k_random
@@ -33,10 +39,15 @@ time100k_random
 time100k_random[3]/60
 head(random_pca$x[,1:2])
 
+
 #### 500k
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_500k", "_", "ila",".out")
+
+Rprof(filename = here("output",paste0("M2_Random", out_name)), append = FALSE, memory.profiling = TRUE)
 
 invisible(random_pca <- BiocSingular::runPCA(mat500k, rank = 50,
                                              center = TRUE, scale = FALSE,
@@ -44,6 +55,7 @@ invisible(random_pca <- BiocSingular::runPCA(mat500k, rank = 50,
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
 
+Rprof(NULL)
 time.end <- proc.time()
 time500k_random <- time.end - time.start
 time500k_random
@@ -57,6 +69,10 @@ head(random_pca$x[,1:2])
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input,"_1000k", "_", "ila",".out")
+
+Rprof(filename = here("output",paste0("M2_Random", out_name)), append = FALSE, memory.profiling = TRUE)
 
 invisible(random_pca <- BiocSingular::runPCA(mat1M, rank = 50,
                                              center = TRUE, scale = FALSE,
@@ -64,6 +80,7 @@ invisible(random_pca <- BiocSingular::runPCA(mat1M, rank = 50,
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
 
+Rprof(NULL)
 time.end <- proc.time()
 time1000k_random <- time.end - time.start
 time1000k_random
@@ -79,12 +96,18 @@ head(random_pca$x[,1:2])
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input,"_1.3M", "_", "ila",".out")
+
+Rprof(filename = here("output",paste0("M2_Random", out_name)), append = FALSE, memory.profiling = TRUE)
 
 invisible(random_pca <- BiocSingular::runPCA(mat, rank = 50,
                                              center = TRUE, scale = FALSE,
                                              BSPARAM = BiocSingular::RandomParam(),
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
+
+Rprof(NULL)
 time.end <- proc.time()
 time1.3M_random <- time.end - time.start
 time1.3M_random
@@ -92,4 +115,3 @@ time1.3M_random
 # elapsed time in minute
 time1.3M_random[3]/60
 head(random_pca$x[,1:2])
-
