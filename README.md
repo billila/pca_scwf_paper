@@ -41,6 +41,7 @@ conda activate spca
 │ └── README.md
 │
 └── envs/ # Container and conda environment definitions
+└── paper_figure/ #Code to reproduce paper figure
 ```
 
 
@@ -48,7 +49,8 @@ conda activate spca
 
 The datasets used in this benchmark are publicly available:
 
-- **1.3M Brain Cells** — available as part of the [TENxBrainData](https://bioconductor.org/packages/TENxBrainData) Bioconductor package.  
+- **1.3M Brain Cells** — available as part of the [TENxBrainData](https://bioconductor.org/packages/TENxBrainData) Bioconductor package or 
+you can register and download it from here: [1M_neurons.h5](https://support.10xgenomics.com/single-cell-gene-expression/datasets/1.3.0/1M_neurons)  
 - **sc_mixology dataset** — available at [GEO: GSE118767](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE118767);  
   additional technical details are provided at [https://github.com/LuyiTian/sc_mixology](https://github.com/LuyiTian/sc_mixology).  
 - **BE1 dataset** — available at [Figshare DOI: 10.6084/m9.figshare.23939481.v1](https://doi.org/10.6084/m9.figshare.23939481.v1).  
