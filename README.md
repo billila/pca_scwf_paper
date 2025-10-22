@@ -30,7 +30,8 @@ conda activate spca
 ```
 ├── pca/
 │ ├── preprocessing/ # Scripts for data preprocessing prior to PCA
-│ ├── run_pca/ # Code for all 28 PCA implementations benchmarked
+│ ├── run_pca_time/ # Code for all 28 PCA implementations benchmarked
+│ ├── run_pca_mem/
 │ └── README.md # Additional details on PCA benchmarking
 │
 ├── scwf/

@@ -17,11 +17,18 @@ mat_100k <- HDF5Array("/mnt/spca/run_spca_2025/hdf5_sparse/sparse_100k/assays.h5
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_100k", "_", "ila",".out")
+
+Rprof(filename = here("output", paste0("M1_Exact", out_name)), append = FALSE, memory.profiling = TRUE)
+
 invisible(random_pca <- BiocSingular::runPCA(mat_100k, rank = 50,
                                              center = TRUE, scale = FALSE,
                                              BSPARAM = BiocSingular::ExactParam(),
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
+
+Rprof(NULL)
 
 time.end <- proc.time()
 time100k_exact<- time.end - time.start
@@ -38,11 +45,17 @@ mat_500k <- HDF5Array("/mnt/spca/run_spca_2025/hdf5_sparse/sparse_500k/assays.h5
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_500k", "_", "ila",".out")
+
+Rprof(filename = here("output", paste0("M1_Exact", out_name)), append = FALSE, memory.profiling = TRUE)
 invisible(random_pca <- BiocSingular::runPCA(mat_500k, rank = 50,
                                              center = TRUE, scale = FALSE,
                                              BSPARAM = BiocSingular::ExactParam(),
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
+
+Rprof(NULL)
 
 time.end <- proc.time()
 time500k_exact <- time.end - time.start
@@ -58,11 +71,18 @@ mat_1M <- HDF5Array("/mnt/spca/run_spca_2025/hdf5_sparse/sparse_1M/assays.h5", "
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_1000k", "_", "ila",".out")
+
+Rprof(filename = here("output", paste0("M1_Exact", out_name)), append = FALSE, memory.profiling = TRUE)
+
 invisible(random_pca <- BiocSingular::runPCA(mat_1M, rank = 50,
                                              center = TRUE, scale = FALSE,
                                              BSPARAM = BiocSingular::ExactParam(),
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
+
+Rprof(NULL)
 
 time.end <- proc.time()
 time1000k_exact <- time.end - time.start
@@ -81,11 +101,18 @@ mat_13M <- HDF5Array("/mnt/spca/run_spca_2025/hdf5_sparse/sparse_1.3M/assays.h5"
 
 time.start <- proc.time()
 
+now <- format(Sys.time(), "%b%d%H%M%OS3")
+out_name <- paste0(input, "_1.3M", "_", "ila",".out")
+
+Rprof(filename = here("output", paste0("M1_Exact", out_name)), append = FALSE, memory.profiling = TRUE)
+
 invisible(random_pca <- BiocSingular::runPCA(mat_13M, rank = 50,
                                              center = TRUE, scale = FALSE,
                                              BSPARAM = BiocSingular::ExactParam(),
                                              #BPPARAM = BiocParallel::MulticoreParam(1)
 ))
+
+Rprof(NULL)
 time.end <- proc.time()
 time1.3M_exact <- time.end - time.start
 time1.3M_exact
@@ -93,4 +120,3 @@ time1.3M_exact
 # elapsed time in minute
 time1.3M_exact[3]/60
 head(random_pca$x[,1:2])
-
