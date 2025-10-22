@@ -66,7 +66,7 @@ If you use this repository, please cite our paper:
 ---
 
 
-# Session Info
+## Session Info
 
 <details>
 <summary>
