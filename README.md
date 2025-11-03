@@ -64,7 +64,7 @@ you can register and download it from here: [1M_neurons.h5](https://support.10xg
 If you use this repository, please cite our paper:
 
 > Billato *et al.* (2025). *Benchmarking large-scale single-cell RNA-seq analysis.*  
-> [Journal / preprint link to be added]
+> [bioRxiv preprint](https://doi.org/10.1101/2025.10.28.681564)
 
 ---
 
