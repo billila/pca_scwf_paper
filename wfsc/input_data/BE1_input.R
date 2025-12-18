@@ -26,11 +26,10 @@ sce <- cbind(sce_A549, `sce_CCL-185-IG`, sce_CRL5868, sce_DV90,
              sce_HCC78, sce_HTB178, sce_PBMCs, sce_PC9)
 
 # create RData object ####
+
 save(sce, file = "BE1.RData")
 
-# save in h5ad #####
-
-counts(sce) <- as.matrix(counts(sce))
+# save h5ad object #####
 
 library(zellkonverter)
 out_path <- tempfile(pattern = ".h5ad")
