@@ -44,5 +44,6 @@ From: bioconductor/bioconductor_docker:RELEASE_3_20
     R -e 'BiocManager::install("satijalab/azimuth", ask = FALSE)'
     R -e 'BiocManager::install("bnprks/BPCells/r", ask = FALSE)'
     R -e 'BiocManager::install("biomaRt")'
+    R -e 'BiocManager::install("DropletUtils")'
     
 
