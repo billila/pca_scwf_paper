@@ -64,6 +64,8 @@ you can register and download it from here: [1M_neurons.h5](https://support.10xg
   additional technical details are provided at [https://github.com/LuyiTian/sc_mixology](https://github.com/LuyiTian/sc_mixology).  
 - **BE1 dataset** — available at [Figshare DOI: 10.6084/m9.figshare.23939481.v1](https://doi.org/10.6084/m9.figshare.23939481.v1).  
 - **Cord Blood dataset** — available as part of the [SingleCellMultiModal](https://bioconductor.org/packages/SingleCellMultiModal) Bioconductor package.
+- **Hao PBMC CITE-seq dataset** — available at [GEO: GSE164378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE164378). 
+- **4.2M-cell MERFISH dataset** (Zhuang-ABCA-1, 1,122 genes) — part of the [Allen Brain Cell Atlas](https://alleninstitute.github.io/abc_atlas_access/).
 
 ---
 
