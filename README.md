@@ -13,6 +13,14 @@ To ensure full reproducibility, we recommend recreating the computational enviro
 - **R environment**  
   All R analyses were run within a pre-built container, available [here](https://github.com/billila/pca_scwf_paper/blob/main/envs/bioc_3_20_pca_wfsc.def).
 
+  To ensure package versions match those used in the paper, CRAN packages were installed from a dated Posit Package Manager snapshot (2025-04-15), set in the container with:
+
+```r
+  options(repos = c(CRAN = "https://p3m.dev/cran/__linux__/noble/2025-04-15"))
+```
+
+  Bioconductor packages correspond to release 3.20 (see Session Info below).
+
 - **Python environment**  
   For Python-based methods, we used a conda environment.  
   The corresponding `spca.yml` file can be found [here](https://github.com/billila/pca_scwf_paper/blob/main/envs/spca.yml).
