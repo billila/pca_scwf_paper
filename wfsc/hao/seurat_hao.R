@@ -108,7 +108,7 @@ time[9,1] <- time_elapsed
 # louvain ####
 start_time <- Sys.time()
 
-data <- FindClusters(data, resolution = 0.04, algorithm = 4)
+data <- FindClusters(data, resolution = 0.04, algorithm = 1)
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
@@ -129,7 +129,7 @@ cat("Louvain Adjusted Rand Index:", ARI, "\n")
 # leiden ####
 start_time <- Sys.time()
 
-data <- FindClusters(data,  algorithm = 1, resolution = 0.04) 
+data <- FindClusters(data,  algorithm = 4, resolution = 0.04) 
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))

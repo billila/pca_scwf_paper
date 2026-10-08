@@ -149,7 +149,7 @@ time[9,1] <- time_elapsed
 # leiden ####
 start_time <- Sys.time()
 data <- FindNeighbors(data, dims = 1:50, verbose = T)
-data <- FindClusters(data,  algorithm = 1, resolution = 0.2) # 4 leiden
+data <- FindClusters(data,  algorithm = 4, resolution = 0.2) # 4 leiden
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
