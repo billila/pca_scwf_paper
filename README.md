@@ -42,7 +42,7 @@ conda activate spca
 │ ├── run_pca_mem/
 │ └── README.md # Additional details on PCA benchmarking
 │
-├── scwf/
+├── wfsc/
 │ ├── 1.3M/ # Workflow scripts grouped by input dataset
 │ ├── BE1/
 │ ├── cb/
