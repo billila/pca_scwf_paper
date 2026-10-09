@@ -12,7 +12,7 @@ sc.settings.verbosity = 3
 
 # save time usage #### 
 time_sc = pd.DataFrame(index=["find_mit_gene", "filter", "normalization", "hvg",
-                           "scaling", "PCA", "t-sne", "umap", "louvain", "leiden"],
+                           "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden"],
                     columns=["time_sec"])
 
 
@@ -123,15 +123,25 @@ time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
 time_sc.iloc[6, 0] = time_elapsed
 
-# UMAP ####
+# knn ####
 start_time = time.time()
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=50)
-sc.tl.umap(adata)
 
 end_time = time.time()
 time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
 time_sc.iloc[7, 0] = time_elapsed
+
+# UMAP ####
+start_time = time.time()
+
+sc.tl.umap(adata)
+
+end_time = time.time()
+time_elapsed = end_time - start_time
+print("Time Elapsed:", time_elapsed)
+time_sc.iloc[8, 0] = time_elapsed
+
 
 # louvain ####
 start_time = time.time()
@@ -141,7 +151,7 @@ sc.tl.louvain(adata, resolution = 0.13)
 end_time = time.time()
 time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
-time_sc.iloc[8, 0] = time_elapsed
+time_sc.iloc[9, 0] = time_elapsed
 
 true_labels = adata.obs['Sample'].astype(str)
 predicted_labels = adata.obs['louvain'].astype(str)
@@ -171,7 +181,7 @@ sc.tl.leiden(adata, resolution = 0.13)
 end_time = time.time()
 time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
-time_sc.iloc[9, 0] = time_elapsed
+time_sc.iloc[10, 0] = time_elapsed
 
 true_labels = adata.obs['Sample'].astype(str)
 predicted_labels = adata.obs['leiden'].astype(str)
