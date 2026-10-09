@@ -19,7 +19,7 @@ sce <- TENxBrainData()
 time <- matrix(NA, 10, 1)
 colnames(time) <- c("time_sec")
 rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg",
-                    "scaling", "PCA", "t-sne", "umap", "louvain", "leiden")
+                    "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden")
 
 library(EnsDb.Hsapiens.v75)
 
@@ -123,6 +123,15 @@ reducedDim(filtered, "TSNE") <- tsne.out
 # plotTSNE(filtered, color_by = "celltype")
 
 
+# snn ####
+start_time <- Sys.time()
+snn.graph <- buildSnnGraph(pca$components, num.threads=nthreads)
+end_time <- Sys.time()
+time_elapsed <- end_time - start_time
+time_elapsed
+print(paste("Time Elapsed:", time_elapsed))
+time[8,1] <- time_elapsed
+
 # umap ####
 start_time <- Sys.time()
 set.seed(1000000)
@@ -133,7 +142,7 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[8,1] <- time_elapsed
+time[9,1] <- time_elapsed
 
 reducedDim(filtered, "UMAP") <- umap.out
 
