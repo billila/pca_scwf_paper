@@ -1,4 +1,4 @@
-his folder contains the code used to benchmark the PCA/SVD implementations
+This folder contains the code used to benchmark the PCA/SVD implementations
 available in R (Bioconductor, RSpectra) and Python (scanpy, scikit-learn,
 RAPIDS/cuML) on the 1.3 Million Brain Cells 
 dataset (10x Genomics, TENxBrainData) and the 4.2 MERFISH dataset.
