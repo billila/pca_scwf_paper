@@ -14,8 +14,8 @@ sce <- sce_sc_10x_5cl_qc
 # save time usage #### 
 time <- matrix(NA, 10, 1)
 colnames(time) <- c("time_sec")
-rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg", 
-                    "scaling", "PCA", "t-sne", "umap", "louvain", "leiden")
+rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg",
+                    "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden")
 
 
 
@@ -117,6 +117,15 @@ time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
 time[7,1] <- time_elapsed
 
+# knn ####
+start_time <- Sys.time()
+g <- buildSNNGraph(sce, use.dimred="PCA", k=50)
+end_time <- Sys.time()
+time_elapsed <- end_time - start_time
+time_elapsed
+print(paste("Time Elapsed:", time_elapsed))
+time[8,1] <- time_elapsed
+
 # umap ####
 start_time <- Sys.time()
 set.seed(1000000)
@@ -126,27 +135,12 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[8,1] <- time_elapsed
-
+time[9,1] <- time_elapsed
 
 # louvain  ####
 start_time <- Sys.time()
-colLabels(sce) <- clusterCells(sce, use.dimred = "PCA",
-                               BLUSPARAM = NNGraphParam(k = 50, cluster.fun = "louvain"))
-end_time <- Sys.time()
-time_elapsed <- end_time - start_time
-time_elapsed
-print(paste("Time Elapsed:", time_elapsed))
-time[9,1] <- time_elapsed
-
-table(colLabels(sce))
-ARI <- adjustedRandIndex((sce$cell_line), colLabels(sce))
-cat("Louvain Adjusted Rand Index:", ARI, "\n")
-
-# leiden ####
-start_time <- Sys.time()
-colLabels(sce) <- clusterCells(sce, use.dimred = "PCA",
-                               BLUSPARAM = NNGraphParam(k = 50, cluster.fun = "leiden"))
+clust.louvain <- igraph::cluster_louvain(g)$membership
+colLabels(sce) <- factor(clust.louvain)
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
@@ -155,9 +149,21 @@ time[10,1] <- time_elapsed
 
 table(colLabels(sce))
 ARI <- adjustedRandIndex((sce$cell_line), colLabels(sce))
-ARI
-cat("Leiden Adjusted Rand Index:", ARI, "\n")
+cat("Louvain Adjusted Rand Index:", ARI, "\n")
 
+# leiden ####
+start_time <- Sys.time()
+clust.leiden <- igraph::cluster_leiden(g)$membership
+colLabels(sce) <- factor(clust.leiden)
+end_time <- Sys.time()
+time_elapsed <- end_time - start_time
+time_elapsed
+print(paste("Time Elapsed:", time_elapsed))
+time[11,1] <- time_elapsed
+
+table(colLabels(sce))
+ARI <- adjustedRandIndex((sce$cell_line), colLabels(sce))
+cat("Leiden Adjusted Rand Index:", ARI, "\n")
 time
 
 
