@@ -50,6 +50,7 @@ conda activate spca
 │ ├── hao/
 │ └── README.md
 │
+├── how_to_extend_the_benchmark/
 └── envs/ # Container and conda environment definitions
 └── paper_figure/ #Code to reproduce paper figure
 ```
