@@ -10,8 +10,11 @@ All methods compute the first 50 principal components on log-normalized
 expression of the highly variable genes.
 
 pca/
+
 ├── preprocessing/   # Gene filtering, normalization, subsetting and saving of the input matrices
+
 ├── run_pca_time/    # One script per implementation: elapsed time
+
 └── run_pca_mem/     # One script per implementation: memory profiling
 
 ## Implementations benchmarked
