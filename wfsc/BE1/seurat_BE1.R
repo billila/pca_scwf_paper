@@ -6,8 +6,8 @@ library(SingleCellExperiment)
 # save time usage #### 
 time <- matrix(NA, 10, 1)
 colnames(time) <- c("time_sec")
-rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg", 
-                    "scaling", "PCA", "t-sne", "umap", "louvain", "leiden")
+rownames(time) <- c("find_mit_gene", "filter", "normalization", "hvg",
+                    "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden")
 
 
 
@@ -97,14 +97,21 @@ time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
 time[7,1] <- time_elapsed
 
+# knn ####
+start_time <- Sys.time()
+data <- FindNeighbors(data, dims=1:50)
+end_time <- Sys.time()
+time_elapsed <- end_time - start_time
+print(paste("Time Elapsed:", time_elapsed))
+time[8,1] <- time_elapsed
+
 # UMAP ####
 start_time <- Sys.time()
 data <- RunUMAP(data, dims = 1:50)
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
-time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[8,1] <- time_elapsed
+time[9,1] <- time_elapsed
 
 
 # louvain ####
@@ -115,7 +122,7 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[9,1] <- time_elapsed
+time[10,1] <- time_elapsed
 
 # cluster concordance louvain #####
 
@@ -137,7 +144,7 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[10,1] <- time_elapsed
+time[11,1] <- time_elapsed
 
 # cluster concordance leiden #####
 

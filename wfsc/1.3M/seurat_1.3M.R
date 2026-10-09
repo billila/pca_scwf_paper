@@ -103,14 +103,21 @@ print(paste("Time Elapsed:", time_elapsed))
 time[7,1] <- time_elapsed
 print(time_elapsed)
 
+# knn ####
+start_time <- Sys.time()
+data <- FindNeighbors(data, dims=1:50)
+end_time <- Sys.time()
+time_elapsed <- end_time - start_time
+print(paste("Time Elapsed:", time_elapsed))
+time[8,1] <- time_elapsed
+
 # UMAP ####
 start_time <- Sys.time()
 data <- RunUMAP(data, dims = 1:50)
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
-time[8,1] <- time_elapsed
-print(time_elapsed)
+time[9,1] <- time_elapsed
 
 
 # louvain ####
@@ -120,7 +127,7 @@ data <- FindClusters(data, resolution = 0.2, algorithm = 1)
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
-time[9,1] <- time_elapsed
+time[10,1] <- time_elapsed
 print(time_elapsed)
 
 
@@ -131,7 +138,7 @@ data <- FindClusters(data,  algorithm = 4, resolution = 0.2) # 4 leiden
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
-time[10,1] <- time_elapsed
+time[11,1] <- time_elapsed
 print(time_elapsed)
 
 time 
