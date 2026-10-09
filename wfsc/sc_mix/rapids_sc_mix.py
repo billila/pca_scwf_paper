@@ -25,7 +25,7 @@ adata = sc.read("sc_mixolgy_10x_5cl.h5ad")
 
 # save time usage #### 
 time_sc = pd.DataFrame(index=["find_mit_gene", "filter", "normalization", "hvg",
-                           "scaling", "PCA", "t-sne", "umap", "louvain", "leiden"],
+                           "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden"],
                     columns=["time_sec"])
 
 rsc.get.anndata_to_GPU(adata)
@@ -135,16 +135,15 @@ time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
 time_sc.iloc[6, 0] = time_elapsed
 
+# SNN
+start_time = time.time()
+rsc.pp.neighbors(adata, n_neighbors=10, n_pcs=50)
+time_sc.iloc[7, 0] = time.time() - start_time
+
 # UMAP
 start_time = time.time()
-
-rsc.pp.neighbors(adata, n_neighbors=10, n_pcs=50)
 rsc.tl.umap(adata)
-
-end_time = time.time()
-time_elapsed = end_time - start_time
-print("Time Elapsed:", time_elapsed)
-time_sc.iloc[7, 0] = time_elapsed
+time_sc.iloc[8, 0] = time.time() - start_time
 
 # louvain 
 start_time = time.time()
@@ -154,7 +153,7 @@ rsc.tl.louvain(adata, resolution=0.09)
 end_time = time.time()
 time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
-time_sc.iloc[8, 0] = time_elapsed
+time_sc.iloc[9, 0] = time_elapsed
 
 true_labels = adata.obs['cell_line'].astype(str)
 predicted_labels = adata.obs['louvain'].astype(str)
@@ -183,7 +182,7 @@ rsc.tl.leiden(adata, resolution=0.09)
 end_time = time.time()
 time_elapsed = end_time - start_time
 print("Time Elapsed:", time_elapsed)
-time_sc.iloc[9, 0] = time_elapsed
+time_sc.iloc[10, 0] = time_elapsed
 
 true_labels = adata.obs['cell_line'].astype(str)
 predicted_labels = adata.obs['leiden'].astype(str)

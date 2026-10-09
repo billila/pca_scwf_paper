@@ -25,8 +25,8 @@ sc.settings.set_figure_params(dpi=80, facecolor='white')
 
 # save time usage #### 
 time_sc = pd.DataFrame(index=["find_mit_gene", "filter", "normalization", "hvg",
-                              "scaling", "PCA", "t-sne", "umap", "louvain", "leiden"],
-                       columns=["time_sec"])
+                           "scaling", "PCA", "t-sne", "knn", "umap", "louvain", "leiden"],
+                    columns=["time_sec"])
 
 
 
