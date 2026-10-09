@@ -151,7 +151,7 @@ clust.out <- clusterGraph(snn.graph, method = c("multilevel"), multilevel.resolu
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
-time[9,1] <- time_elapsed
+time[10,1] <- time_elapsed
 
 
 length(clust.out$membership)
@@ -168,7 +168,7 @@ clust.out <- clusterGraph(snn.graph, method = c("leiden"), leiden.resolution = 0
 end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 print(paste("Time Elapsed:", time_elapsed))
-time[10,1] <- time_elapsed
+time[11,1] <- time_elapsed
 
 #table(colLabels(filtered))
 length(clust.out$membership)

@@ -161,7 +161,7 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[9,1] <- time_elapsed
+time[10,1] <- time_elapsed
 
 
 
@@ -173,7 +173,7 @@ end_time <- Sys.time()
 time_elapsed <- end_time - start_time
 time_elapsed
 print(paste("Time Elapsed:", time_elapsed))
-time[10,1] <- time_elapsed
+time[11,1] <- time_elapsed
 
 
 time
